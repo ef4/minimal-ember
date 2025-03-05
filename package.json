@@ -16,6 +16,7 @@
     "./tests/*": "./tests/*",
     "./*": "./src/*"
   },
+  "packageManager": "pnpm@10.4.1",
   "scripts": {
     "build": "vite build",
     "build:test": "NODE_ENV=development vite build --mode test",
