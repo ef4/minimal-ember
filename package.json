@@ -19,7 +19,7 @@
   "packageManager": "pnpm@10.4.1",
   "scripts": {
     "build": "vite build",
-    "build:test": "NODE_ENV=development vite build --mode test",
+    "build:test": "vite build --mode test",
     "start": "vite",
     "test": "pnpm test:ember",
     "test:ember": "pnpm build:test && pnpm dist:ember:test",
