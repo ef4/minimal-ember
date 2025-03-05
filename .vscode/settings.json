@@ -1,0 +1,7 @@
+{
+  "editor.formatOnSave": true,
+  "[glimmer-ts]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.documentSelectors": ["**/*.gjs", "**/*.gts"]
+}

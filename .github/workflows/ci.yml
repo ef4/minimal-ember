@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip tests]')"
+    steps:
+      - uses: actions/checkout@v1
+      - uses: ./.github/actions/setup
+      - run: pnpm lint
+
+  test:
+    name: Ember tests
+    runs-on: ${{ matrix.suite.os }}
+    if: "!contains(github.event.head_commit.message, '[skip tests]')"
+
+    strategy:
+      fail-fast: false
+      matrix:
+        suite:
+          [
+            { browser: 'Chrome', os: 'ubuntu-latest' },
+            { browser: 'Edge', os: 'windows-latest' },
+            { browser: 'SafariApplescript', os: 'macos-latest' },
+          ]
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: ./.github/actions/setup
+      - run: pnpm test:ember
+        env:
+          TEST_BROWSER: ${{ matrix.suite.browser }}
+
+  deploy:
+    runs-on: ubuntu-latest
+    # the "always" here is because github won't even bother running your
+    # condition if previous jobs were unsuccessful and your condition doesn't
+    # include any status checking functions
+    if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main' && contains(fromJson('["skipped", "success"]'), needs.test.result) && contains(fromJson('["skipped", "success"]'), needs.lint.result)
+    needs: [test, lint]
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v1
+      - uses: ./.github/actions/setup
+      - name: deploy goes here
+        run: echo "Deploy would go here"
