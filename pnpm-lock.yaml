@@ -26,6 +26,9 @@ importers:
       '@embroider/core':
         specifier: ^4.0.0-alpha.6
         version: 4.0.0-alpha.6(@glint/template@1.4.1-unstable.a8cefd1)
+      '@embroider/macros':
+        specifier: ^1.17.0-alpha.5
+        version: 1.17.0-alpha.5(@glint/template@1.4.1-unstable.a8cefd1)
       '@embroider/router':
         specifier: ^3.0.0-alpha.1
         version: 3.0.0-alpha.1(@embroider/core@4.0.0-alpha.6(@glint/template@1.4.1-unstable.a8cefd1))

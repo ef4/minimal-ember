@@ -37,6 +37,7 @@
     "@babel/runtime": "^7.25.6",
     "@ember/test-helpers": "^5.0.0",
     "@embroider/core": "^4.0.0-alpha.6",
+    "@embroider/macros": "^1.17.0-alpha.5",
     "@embroider/router": "^3.0.0-alpha.1",
     "@embroider/vite": "^1.0.0-alpha.7 ",
     "@glimmer/component": "^2.0.0",
