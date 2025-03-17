@@ -55,7 +55,7 @@
     "ember-page-title": "^8.2.4",
     "ember-qunit": "^9.0.1",
     "ember-resolver": "^13.1.0",
-    "ember-source": "6.3.0-alpha.4",
+    "ember-source": "6.4.0-alpha.6",
     "prettier-plugin-ember-template-tag": "^2.0.4",
     "prettier": "^3.5.3",
     "qunit-dom": "^3.4.0",
